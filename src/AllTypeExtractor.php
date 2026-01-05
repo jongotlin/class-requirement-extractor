@@ -7,7 +7,7 @@ use Symfony\Component\PropertyInfo\PropertyTypeExtractorInterface;
 /**
  * An aggregator over many PropertyTypeExtractorInterface and will return all Types.
  */
-class AllTypeExtractor implements PropertyTypeExtractorInterface
+class AllTypeExtractor
 {
     /**
      * @param iterable<mixed, PropertyTypeExtractorInterface> $typeExtractors

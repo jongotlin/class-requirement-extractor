@@ -22,7 +22,7 @@ class RequirementExtractor
 
     public function __construct(
         private PropertyAccessExtractorInterface $propertyAccessExtractor,
-        private PropertyTypeExtractorInterface $propertyTypeExtractor,
+        private AllTypeExtractor $propertyTypeExtractor,
         private DocBlockParser $docBlockParser,
         iterable $attributeProcessors
     ) {
