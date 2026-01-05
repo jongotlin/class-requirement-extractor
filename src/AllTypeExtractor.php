@@ -21,8 +21,16 @@ class AllTypeExtractor implements PropertyTypeExtractorInterface
     {
         $output = [];
         foreach ($this->typeExtractors as $extractor) {
-            if (null !== $value = $extractor->getTypes($class, $property, $context)) {
-                $output[] = $value;
+            // Symfony < 8
+            if (method_exists($extractor, 'getTypes')) {
+                if (null !== $value = $extractor->getTypes($class, $property, $context)) {
+                    $output[] = $value;
+                }
+                continue;
+            }
+
+            if (null !== $value = $extractor->getType($class, $property, $context)) {
+                $output[] = [$value];
             }
         }
 
